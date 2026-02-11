@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appointment Confirmed</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #F4EDE9;
+    --card: #FFFFFF;
+    --text-dark: #252323;
+    --text-light: #8E8682;
+    --accent: #C2A89A;
+    --border: rgba(0,0,0,0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-dark);
+}
+
+header {
+    text-align: center;
+    padding: 32px 0 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.confirmation-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px 80px;
+}
+
+.confirmation-card {
+    background: var(--card);
+    width: 100%;
+    max-width: 520px;
+    padding: 48px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* Success Icon */
+.success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--bg);
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    fill: none;
+}
+
+/* Heading */
+.confirmation-card h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.confirmation-card p.subtext {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+}
+
+/* Summary */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.summary-label {
+    color: var(--text-light);
+}
+
+.summary-value {
+    font-weight: 500;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: white;
+    transition: 0.25s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+    border: none;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+</style>
+</head>
+<body>
+
+<header>
+    LUMIÈRE
+</header>
+
+<div class="confirmation-wrapper">
+    <div class="confirmation-card">
+
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+
+        <h1>Your appointment is confirmed</h1>
+
+        <p class="subtext">
+            We look forward to welcoming you.<br>
+            A confirmation email has been sent to <strong>{{ booking.email }}</strong>
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="summary-row">
+            <span class="summary-label">Service</span>
+            <span class="summary-value">{% for service in booking.services.all %}
+        {{ service.service_name }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}</span>
+        </div>
+
+        <div class="summary-row">
+            <span class="summary-label">Date</span>
+            <span class="summary-value">{{ booking.booking_date|date:"F d, Y" }}</span>
+        </div>
+
+        <div class="summary-row">
+            <span class="summary-label">Time</span>
+            <span class="summary-value">{{ booking.booking_time|time:"g:i A" }}</span>
+        </div>
+
+        <div class="summary-row">
+            <span class="summary-label">Specialist</span>
+            <span class="summary-value">{{ booking.specialist.name }}</span>
+        </div>
+
+        <div class="summary-row">
+            <span class="summary-label">Total Price</span>
+            <span class="summary-value">${{booking.total_price}}</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="button-group">
+            <a class="btn" href="{% url 'main:index' %}" style="text-decoration: none; color: #1f1d1d">Back to Home</a>
+            <a class="btn btn-primary" href="{% url 'main:book' %}" style="text-decoration: none">Book Another</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

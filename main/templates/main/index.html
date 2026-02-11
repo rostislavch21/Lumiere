@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<main>
+    <header class="nav">
+    <nav class="navigation">
+        <a href="{% url 'main:index' %}" class="navigation__logo">
+            LUMIÈRE
+        </a>
+        <div class="navigation__button">
+            <a href="{% url 'main:book' %}">Book appointment</a>
+        </div>
+    </nav>
+    </header>
+    <section class="section-hero">
+        <div class="section-hero__content">
+
+            <p class="section-hero__eyebrow">THE ART OF SELF-CARE</p>
+
+            <h1 class="section-hero__title">
+                Elevating beauty to a mindful ritual.
+            </h1>
+
+            <p class="section-hero__text">
+                A sanctuary in the city dedicated to aesthetic excellence and your personal well-being.
+                Experience modern treatments in a calm, boutique atmosphere.
+            </p>
+
+            <div class="section-hero__actions">
+                <button class="btn btn--primary">View services</button>
+                <a href="{% url 'main:story' %}" class="btn btn--secondary">Our story</a>
+            </div>
+
+        </div>
+        <div class="section-hero__img-container">
+            <img class="section-hero__img" src="{% static 'img/Serene woman.png' %}" alt="">
+        </div>
+    </section>
+    <section class="philosophy">
+        <div class="philosophy__container">
+        <div class="philosophy__img-container">
+            <img src="{% static 'img/Salon Interior.png' %}" alt="">
+        </div>
+        <div class="philosophy__content">
+            <p class="philosophy__eyebrow">OUR PHILOSOPHY</p>
+
+            <h2 class="philosophy__title">Not just a salon, a retreat for the soul.</h2>
+
+            <p class="philosophy__text_1">We believe that beauty is a feeling, not just a look. At Lumière, we have curated a space where time slows down. Our treatments are designed to restore balance, enhance your natural features, and provide a moment of true respite from the busy world outside.</p>
+
+            <p class="philosophy__text_2">Every product we use is selected for its efficacy and ethical standards. Every therapist is a master of their craft.</p>
+
+            <a class="philosophy__link" href="{% url 'main:story' %}">Read more about us</a>
+        </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services__text_container">
+            <p class="services__eyebrow">CURATED TREATMENTS</p>
+            <h2 class="services__title">Our Menu</h2>
+            <p class="services__description">Precision, care, and quality. Choose from our signature services designed to rejuvenate.</p>
+        </div>
+        <div class="card_box">
+            <div class="card_container">
+                <img class="card_image" src="{% static 'img/Facial.png' %}" alt="">
+                <div class="card_text_block">
+                <div class="card_pricebox">
+                <p class="card_title">Signature Facials</p>
+                <p class="card_price">from $120</p>
+                </div>
+                <p class="card_description">Deep cleansing, hydration, and massage techniques to bring out your inner glow.</p>
+                </div>
+            </div>
+            <div class="card_container">
+                <img class="card_image" src="{% static 'img/Nails.png' %}" alt="">
+                <div class="card_text_block">
+                <div class="card_pricebox">
+                <p class="card_title">Nail Care</p>
+                <p class="card_price">from $45</p>
+                </div>
+                <p class="card_description">Meticulous manicures and pedicures using non-toxic, long-lasting polishes.</p>
+                </div>
+            </div>
+            <div class="card_container">
+                <img class="card_image" src="{% static 'img/Hair.png' %}" alt="">
+                <div class="card_text_block">
+                <div class="card_pricebox">
+                <p class="card_title">Hair styling</p>
+                <p class="card_price">from $80</p>
+                </div>
+                <p class="card_description">Cuts, color, and treatments tailored to your lifestyle and hair health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="review">
+        <div class="review__container">
+            <img class="review__quote_img" src="{% static 'img/quotes.svg' %}" alt="">
+            <h4 class="review__text">"Lumière is simply the best experience I've had in the city. The attention to detail, the calm atmosphere, and the skill of the staff are unmatched. It’s my monthly reset."</h4>
+            <div>
+            <img class="review__img_author" src="{% static 'img/Client.png' %}" alt="">
+            <p class="review__name_author">Elena Rossi</p>
+            <p class="review__client">REGULAR CLIENT</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram">
+        <div class="instagram__container">
+        <div class="instagram__text">
+            <h4>Follow our journey</h4>
+            <p>@LUMIERESALON</p>
+        </div>
+            <div class="instagram__photos">
+            <div class="insta-item">
+                <img src="{% static 'img/00f16f99394c0621033f23a9aff73d5ac441dcee.jpg' %}" alt="">
+                <div class="insta-overlay">
+                    <span class="insta-likes">❤ 2.4k</span>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="{% static 'img/8479d74f231f0a0e482d04c8d809ffed47421b83.jpg' %}" alt="">
+                <div class="insta-overlay">
+                    <span class="insta-likes">❤ 1.9k</span>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="{% static 'img/62b0cc956abde7efe39c6404d68c70b9272eb293.jpg' %}" alt="">
+                <div class="insta-overlay">
+                    <span class="insta-likes">❤ 3.1k</span>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="{% static 'img/e7678d79a11d340dc3132802622e9d81f0b35512.jpg' %}" alt="">
+                <div class="insta-overlay">
+                    <span class="insta-likes">❤ 980</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer__container">
+        <div class="upper_footer">
+            <div class="book_visit">
+                <h3 class="book_visit__title">Book your visit.</h3>
+                <p class="book_visit__text">Ready for a moment of calm? Use our online booking system or give us a call. We look forward to welcoming you.</p>
+                <a class="book_visit__link" href="{% url 'main:book' %}">Book Online</a>
+            </div>
+            <div class="contacts">
+                <div class="visit">
+                    <h5>Visit Us</h5>
+                    <p>Svobody, 35 <br>
+                    Lviv, 79000 <br>
+                    Ukraine</p>
+                </div>
+                <div class="contact">
+                    <h5>Contact</h5>
+                    <p>hello@lumiere.mail</p>
+                    <p>+380976033820</p>
+                    <p>+380503626331</p>
+                </div>
+                <div class="hours">
+                    <h5>Hours</h5>
+                    <p>Mon - Fri: 09:00 - 20:00</p>
+                    <p>Sat: 10:00 - 18:00</p>
+                    <p>Sun: Closed</p>
+                </div>
+                <div class="legal">
+                    <h5>Legal</h5>
+                    <p>Privacy policy</p>
+                    <p>Terms of Service</p>
+                    <p>Cookies usage</p>
+                </div>
+            </div>
+        </div>
+            <div class="lower__footer">
+                <p>© 2026 LUMIERE BEAUTY. All rights reserved.</p>
+                <div class="media">
+                    <img class="insta_media" src="{% static 'img/insta.svg' %}" alt="">
+                    <img class="fb_media" src="{% static 'img/fb.svg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

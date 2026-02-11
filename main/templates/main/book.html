@@ -1,0 +1,519 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<main>
+   <header class="nav">
+    <nav class="navigation">
+        <a href="{% url 'main:index' %}" class="navigation__logo">
+            LUMIÈRE
+        </a>
+        <div class="navigation__button">
+            <a href="{% url 'main:book' %}">Book appointment</a>
+        </div>
+    </nav>
+    </header>
+
+<form method="POST" action="{% url 'main:book' %}">
+{% csrf_token %}
+<section class="text_section">
+    <h1 class="text_section__title">Book an Appointment</h1>
+    <h3 class="text_section__description">Choose your service, date, and time to reserve your moment of calm.</h3>
+</section>
+
+<section class="service_select">
+
+    <div class="service_select__upper">
+        <div class="number_round first_round">
+            <span class="number first_number">1</span>
+        </div>
+        <p>Select Services</p>
+    </div>
+
+    <fieldset class="service_select__lower">
+    <legend class="visually-hidden">
+        Choose one or more services
+    </legend>
+
+    {% for service in services %}
+        <label class="service_select__card">
+
+            <input
+                type="checkbox"
+                name="services"
+                value="{{ service.id }}"
+                data-price="{{ service.price }}"
+                {% if form.services.value and service.id|stringformat:"s" in form.services.value %}
+                    checked
+                {% endif %}
+            >
+
+            <div class="service_select__content">
+                <div class="service_select__title-price">
+                    <h4>{{ service.service_name }}</h4>
+                    <p class="service_select__price">
+                        ${{ service.price|floatformat:0 }}
+                    </p>
+                </div>
+
+                {% if service.service_description %}
+                    <p class="service_select__description">
+                        {{ service.service_description }}
+                    </p>
+                {% endif %}
+            </div>
+
+        </label>
+    {% endfor %}
+
+</fieldset>
+
+</section>
+
+<section class="specialist_select">
+
+    <div class="service_select__upper specialist_select__upper">
+        <div class="number_round second_round">
+            <span class="number second_number">2</span>
+        </div>
+        <p>Select Specialist</p>
+        <p class="optional">(optional)</p>
+    </div>
+
+    <fieldset class="specialist_select__lower">
+        <legend class="visually-hidden">Choose a specialist</legend>
+
+        <!-- ANY -->
+        <label class="specialist_select__card">
+            <input
+                type="radio"
+                name="specialist"
+                value=""
+                {% if not form.specialist.value %}checked{% endif %}
+            >
+
+            <div class="specialist_select__content">
+                <div class="specialist_select__round">
+                    <span>Any</span>
+                </div>
+                <p>Any specialist</p>
+            </div>
+        </label>
+
+        <!-- Specialists from DB -->
+        {% for specialist in specialists %}
+            <label class="specialist_select__card">
+
+                <input
+                    type="radio"
+                    name="specialist"
+                    value="{{ specialist.id }}"
+                    {% if form.specialist.value == specialist.id|stringformat:"s" %}
+                        checked
+                    {% endif %}
+                >
+
+                <div class="specialist_select__content">
+
+                    {% if specialist.photo %}
+                        <img
+                            src="{{ specialist.photo.url }}"
+                            alt="{{ specialist.name }}"
+                        >
+                    {% else %}
+                        <div class="specialist_select__round">
+                            <span>{{ specialist.name|first }}</span>
+                        </div>
+                    {% endif %}
+
+                    <p>{{ specialist.name }}</p>
+                </div>
+
+            </label>
+        {% endfor %}
+
+    </fieldset>
+
+</section>
+
+<section class="data_select">
+
+  <div class="service_select__upper">
+      <div class="number_round first_round">
+          <span class="number third_number">3</span>
+      </div>
+      <p>Date & Time</p>
+  </div>
+
+  <!-- скрытые поля -->
+  <input type="hidden" name="booking_date" id="bookingDate">
+  <input type="hidden" name="booking_time" id="bookingTime">
+
+  <div class="booking-wrapper">
+
+    <!-- CALENDAR -->
+    <div class="calendar-section">
+
+      <div class="calendar-header">
+        <h2 id="monthYear"></h2>
+
+        <div class="calendar-nav">
+          <button type="button" id="prevBtn">
+            <img src="{% static 'img/Vector1.svg' %}" alt="">
+          </button>
+
+          <button type="button" id="nextBtn">
+            <img src="{% static 'img/Vector2.svg' %}" alt="">
+          </button>
+        </div>
+      </div>
+
+      <div class="weekdays">
+        <span>MO</span><span>TU</span><span>WE</span>
+        <span>TH</span><span>FR</span><span>SA</span><span>SU</span>
+      </div>
+
+      <div id="calendarDays" class="calendar-days"></div>
+    </div>
+
+
+    <!-- SLOTS -->
+    <div class="slots-section">
+      <h3>Available slots</h3>
+      <div id="slots" class="slots-grid"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="details-select">
+    <div class="service_select__upper">
+        <div class="number_round first_round">
+            <span class="number fourth_number">4</span>
+        </div>
+        <p>Your Details</p>
+    </div>
+
+    <fieldset class="booking-fieldset">
+        <legend class="visually-hidden">
+            Contact Information
+        </legend>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label for="{{ form.first_name.id_for_label }}">
+                    First Name
+                </label>
+                {{ form.first_name }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.last_name.id_for_label }}">
+                    Last Name
+                </label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">
+                    Email Address
+                </label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.phone_number.id_for_label }}">
+                    Phone Number
+                </label>
+                {{ form.phone_number }}
+            </div>
+
+        </div>
+
+        <div class="form-group full-width">
+            <label for="{{ form.requests.id_for_label }}">
+                Special Requests
+                <span class="optional">(optional)</span>
+            </label>
+            {{ form.requests }}
+        </div>
+
+    </fieldset>
+</section>
+
+<section class="total" aria-labelledby="summary-title">
+  <div class="summary-left">
+    <p id="summary-title" class="summary-label">
+      Total Estimate
+    </p>
+    <p class="summary-price">
+      <span class="currency">$</span>
+      <span id="totalAmount">0.00</span>
+    </p>
+  </div>
+
+  <div class="summary-right">
+    <p id="summaryServices" class="summary-service">
+      No services selected
+    </p>
+    <p id="summaryDetails" class="summary-details">
+      No date selected
+    </p>
+  </div>
+</section>
+
+<div class="booking-actions">
+
+  <a href="{% url 'main:index' %}" class="btn-back">
+    ← Back
+  </a>
+
+  <button type="submit" class="btn-confirm">
+    Confirm Booking
+  </button>
+
+</div>
+</form>
+<div class="footer_booking">© 2026 Lumière Beauty</div>
+</main>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =============================
+    // ЭЛЕМЕНТЫ
+    // =============================
+
+    const serviceCheckboxes = document.querySelectorAll('input[name="services"]');
+    const specialistRadios = document.querySelectorAll('input[name="specialist"]');
+
+    const totalElement = document.getElementById("totalAmount");
+    const summaryServices = document.getElementById("summaryServices");
+    const summaryDetails = document.getElementById("summaryDetails");
+
+    const calendarDays = document.getElementById("calendarDays");
+    const monthYear = document.getElementById("monthYear");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const slotsContainer = document.getElementById("slots");
+
+    const hiddenDate = document.getElementById("bookingDate");
+    const hiddenTime = document.getElementById("bookingTime");
+
+    // =============================
+    // СОСТОЯНИЕ
+    // =============================
+
+    let currentDate = new Date();
+    let selectedDate = null;
+    let selectedTime = null;
+
+    const slotsData = {
+        default: ["09:00","10:00","11:30","13:00","14:30","16:00"]
+    };
+
+    // =============================
+    // СЕРВИСЫ + СУММА
+    // =============================
+
+    function updateServicesSummary() {
+
+        let total = 0;
+        let selectedNames = [];
+
+        serviceCheckboxes.forEach(cb => {
+            if (cb.checked) {
+
+                total += parseFloat(cb.dataset.price);
+
+                const name = cb
+                    .closest(".service_select__card")
+                    .querySelector("h4")
+                    .innerText;
+
+                selectedNames.push(name);
+            }
+        });
+
+        totalElement.textContent = total.toFixed(2);
+
+        summaryServices.textContent = selectedNames.length
+            ? selectedNames.join(", ")
+            : "No services selected";
+
+        updateDetailsSummary();
+    }
+
+    serviceCheckboxes.forEach(cb => {
+        cb.addEventListener("change", updateServicesSummary);
+    });
+
+    // =============================
+    // СПЕЦИАЛИСТ
+    // =============================
+
+    specialistRadios.forEach(radio => {
+        radio.addEventListener("change", updateDetailsSummary);
+    });
+
+    // =============================
+    // КАЛЕНДАРЬ
+    // =============================
+
+    function renderCalendar(){
+
+        calendarDays.innerHTML = "";
+
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+
+        const startDay = (firstDay.getDay() + 6) % 7;
+        const totalDays = lastDay.getDate();
+
+        monthYear.textContent = currentDate.toLocaleString("en-US", {
+            month: "long",
+            year: "numeric"
+        });
+
+        for(let i=0;i<startDay;i++){
+            calendarDays.innerHTML += "<span></span>";
+        }
+
+        for(let day=1; day<=totalDays; day++){
+
+            const date = new Date(year, month, day);
+            const today = new Date();
+            today.setHours(0,0,0,0);
+
+            const dayElement = document.createElement("span");
+            dayElement.textContent = day;
+            dayElement.classList.add("day");
+
+            if(date < today){
+                dayElement.classList.add("disabled");
+            }
+
+            dayElement.addEventListener("click", ()=>{
+
+                if(dayElement.classList.contains("disabled")) return;
+
+                document.querySelectorAll(".day")
+                    .forEach(d=>d.classList.remove("selected"));
+
+                dayElement.classList.add("selected");
+
+                selectedDate = date;
+                selectedTime = null;
+
+                hiddenDate.value = date.toISOString().split("T")[0];
+                hiddenTime.value = "";
+
+                renderSlots();
+                updateDetailsSummary();
+            });
+
+            calendarDays.appendChild(dayElement);
+        }
+    }
+
+    // =============================
+    // СЛОТЫ
+    // =============================
+
+    function renderSlots(){
+
+        slotsContainer.innerHTML = "";
+
+        if(!selectedDate) return;
+
+        slotsData.default.forEach(time => {
+
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.textContent = time;
+            btn.classList.add("slot");
+
+            btn.addEventListener("click", ()=>{
+
+                document.querySelectorAll(".slot")
+                    .forEach(s=>s.classList.remove("selected"));
+
+                btn.classList.add("selected");
+
+                selectedTime = time;
+                hiddenTime.value = time;
+
+                updateDetailsSummary();
+            });
+
+            slotsContainer.appendChild(btn);
+        });
+    }
+
+    prevBtn.addEventListener("click", ()=>{
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+    });
+
+    nextBtn.addEventListener("click", ()=>{
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+    });
+
+    // =============================
+    // SUMMARY DETAILS
+    // =============================
+
+    function updateDetailsSummary(){
+
+        const selectedSpecialist = document.querySelector(
+            'input[name="specialist"]:checked'
+        );
+
+        let specialistName = "Any specialist";
+
+        if (selectedSpecialist && selectedSpecialist.value) {
+            specialistName = selectedSpecialist
+                .closest(".specialist_select__card")
+                .querySelector("p")
+                .innerText;
+        }
+
+        if (selectedDate && selectedTime) {
+
+            const formattedDate = selectedDate.toLocaleDateString(
+                "en-US",
+                { month: "short", day: "numeric" }
+            );
+
+            summaryDetails.textContent =
+                `${formattedDate}, ${selectedTime} with ${specialistName}`;
+
+        } else {
+            summaryDetails.textContent = "No date selected";
+        }
+    }
+
+    // =============================
+    // INIT
+    // =============================
+
+    renderCalendar();
+    updateServicesSummary();
+
+});
+</script>
+</html>

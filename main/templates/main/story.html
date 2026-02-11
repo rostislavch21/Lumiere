@@ -1,0 +1,312 @@
+{% load static %}
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=Geist:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Shantell+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <title>Our Story | LUMIÈRE</title>
+    </head>
+    <body>
+   <header class="nav">
+    <nav class="navigation">
+        <a href="{% url 'main:index' %}" class="navigation__logo">
+            LUMIÈRE
+        </a>
+        <div class="navigation__button">
+            <a href="{% url 'main:book' %}">Book appointment</a>
+        </div>
+    </nav>
+    </header>
+
+      <section class="section" style="padding-bottom: 60px">
+        <div class="container-narrow text-center space-y-6">
+          <span class="caption">The Sanctuary</span>
+          <h1 class="heading-xl">Our Story</h1>
+          <p
+            class="heading-md"
+            style="
+              color: var(--muted-foreground);
+              max-width: 600px;
+              margin: 0 auto;
+            "
+          >
+            We believe beauty is more than a look—it is a ritual of self-care, a
+            moment of calm, and a return to yourself.
+          </p>
+        </div>
+      </section>
+
+      <div class="container" style="margin-bottom: 100px">
+        <div class="image-card" style="height: 500px">
+          <img
+            data-aspect-ratio="21:9"
+            data-query="interior of a luxury minimalist beauty salon, warm beige tones, soft lighting, empty serene space, high end spa, architectural photography"
+            alt="Lumiere Salon Interior"
+            src="https://storage.googleapis.com/banani-generated-images/generated-images/6e438f26-ecac-4223-a174-7ce743c01995.jpg"
+          />
+        </div>
+      </div>
+
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-2">
+            <div class="image-card" style="height: 600px">
+              <img
+                data-aspect-ratio="3:4"
+                data-query="close up of a woman's hand resting on a soft beige linen towel in a spa, cinematic lighting, calm atmosphere, luxury beauty"
+                alt="Spa Detail"
+                src="https://storage.googleapis.com/banani-generated-images/generated-images/5ec9ad6c-e377-41f5-8f14-9baf769f38b3.jpg"
+              />
+            </div>
+            <div class="space-y-6">
+              <h2 class="heading-lg">Beauty as a feeling</h2>
+              <div class="space-y-4">
+                <p class="body-lg">
+                  Lumière was founded on a simple yet profound philosophy: that
+                  true radiance comes from within. In a world that never stops
+                  moving, we wanted to create a space that invites you to pause.
+                </p>
+                <p class="body-lg">
+                  Every texture, scent, and sound in our salon is curated to
+                  lower your heart rate and lift your spirit. We don't just
+                  treat skin; we honor the person within it.
+                </p>
+                <p class="body-lg">
+                  Our approach blends modern dermatological science with age-old
+                  rituals of touch and care, ensuring that you leave not just
+                  looking refreshed, but feeling deeply restored.
+                </p>
+              </div>
+              <div style="padding-top: 16px">
+                <img
+                  src="https://storage.googleapis.com/banani-avatars/avatar%2Ffemale%2F35-50%2FEuropean%2F4"
+                  alt="Founder"
+                  style="
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    margin-bottom: 16px;
+                  "
+                />
+                <p class="heading-sm">Elena V.</p>
+                <p class="caption">Founder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Values -->
+      <section class="section bg-soft">
+        <div class="container">
+          <div class="text-center space-y-4" style="margin-bottom: 64px">
+            <h2 class="heading-lg">Our Values</h2>
+            <p class="body-md">The principles that guide every touch.</p>
+          </div>
+
+          <div class="grid-3">
+            <div class="flex-col items-center text-center space-y-4">
+              <div class="value-icon">
+                <div
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <iconify-icon
+                    icon="lucide:sparkles"
+                    style="font-size: 24px; color: var(--foreground)"
+                  ></iconify-icon>
+                </div>
+              </div>
+              <h3 class="heading-sm">Craftsmanship</h3>
+              <p class="body-md">
+                We are students of our craft, constantly refining our techniques
+                to offer the highest standard of care.
+              </p>
+            </div>
+
+            <div class="flex-col items-center text-center space-y-4">
+              <div class="value-icon">
+                <div
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <iconify-icon
+                    icon="lucide:heart"
+                    style="font-size: 24px; color: var(--foreground)"
+                  ></iconify-icon>
+                </div>
+              </div>
+              <h3 class="heading-sm">Integrity</h3>
+              <p class="body-md">
+                We use only clean, proven ingredients and sustainable practices
+                that respect both your skin and the planet.
+              </p>
+            </div>
+
+            <div class="flex-col items-center text-center space-y-4">
+              <div class="value-icon">
+                <div
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <iconify-icon
+                    icon="lucide:wind"
+                    style="font-size: 24px; color: var(--foreground)"
+                  ></iconify-icon>
+                </div>
+              </div>
+              <h3 class="heading-sm">Serenity</h3>
+              <p class="body-md">
+                Silence is our luxury. We protect the peace of our space so you
+                can disconnect and truly rest.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section class="section">
+        <div class="container">
+          <div
+            class="flex-row justify-between items-center"
+            style="margin-bottom: 64px"
+          >
+            <h2 class="heading-lg">Meet the Specialists</h2>
+          </div>
+
+          <div class="grid-3">
+            <!-- Specialist 1 -->
+            <div class="flex-col text-center space-y-4">
+              <div class="team-avatar">
+                <img
+                  src="https://storage.googleapis.com/banani-avatars/avatar%2Ffemale%2F25-35%2FEast%20Asian%2F1"
+                  alt="Sarah"
+                />
+              </div>
+              <div>
+                <h3 class="heading-sm">Sarah L.</h3>
+                <p class="caption" style="margin-top: 4px">
+                  Senior Esthetician
+                </p>
+              </div>
+            </div>
+
+            <!-- Specialist 2 -->
+            <div class="flex-col text-center space-y-4">
+              <div class="team-avatar">
+                <img
+                  src="https://storage.googleapis.com/banani-avatars/avatar%2Fmale%2F25-35%2FHispanic%2F2"
+                  alt="Marc"
+                />
+              </div>
+              <div>
+                <h3 class="heading-sm">Marc R.</h3>
+                <p class="caption" style="margin-top: 4px">Hair Stylist</p>
+              </div>
+            </div>
+
+            <!-- Specialist 3 -->
+            <div class="flex-col text-center space-y-4">
+              <div class="team-avatar">
+                <img
+                  src="https://storage.googleapis.com/banani-avatars/avatar%2Ffemale%2F25-35%2FEuropean%2F3"
+                  alt="Elena"
+                />
+              </div>
+              <div>
+                <h3 class="heading-sm">Elena K.</h3>
+                <p class="caption" style="margin-top: 4px">Massage Therapist</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing CTA -->
+      <section class="section text-center bg-soft" style="padding: 120px 0">
+        <div class="container-narrow space-y-8">
+          <h2 class="heading-xl">Experience Lumière</h2>
+          <p class="heading-md" style="color: var(--muted-foreground)">
+            Begin your journey to relaxation today.
+          </p>
+          <a href="{% url 'main:book' %}"
+            class="btn btn-primary"
+            style="min-width: 200px"
+            data-media-type="banani-button"
+          >
+            Book an Appointment
+        </a>
+        </div>
+      </section>
+
+<footer>
+        <div class="footer__container">
+        <div class="upper_footer">
+            <div class="book_visit">
+                <h3 class="book_visit__title">Book your visit.</h3>
+                <p class="book_visit__text">Ready for a moment of calm? Use our online booking system or give us a call. We look forward to welcoming you.</p>
+                <a class="book_visit__link" href="{% url 'main:book' %}">Book Online</a>
+            </div>
+            <div class="contacts">
+                <div class="visit">
+                    <h5>Visit Us</h5>
+                    <p>Svobody, 35 <br>
+                    Lviv, 79000 <br>
+                    Ukraine</p>
+                </div>
+                <div class="contact">
+                    <h5>Contact</h5>
+                    <p>hello@lumiere.mail</p>
+                    <p>+380976033820</p>
+                    <p>+380503626331</p>
+                </div>
+                <div class="hours">
+                    <h5>Hours</h5>
+                    <p>Mon - Fri: 09:00 - 20:00</p>
+                    <p>Sat: 10:00 - 18:00</p>
+                    <p>Sun: Closed</p>
+                </div>
+                <div class="legal">
+                    <h5>Legal</h5>
+                    <p>Privacy policy</p>
+                    <p>Terms of Service</p>
+                    <p>Cookies usage</p>
+                </div>
+            </div>
+        </div>
+            <div class="lower__footer">
+                <p>© 2026 LUMIERE BEAUTY. All rights reserved.</p>
+                <div class="media">
+                    <img class="insta_media" src="src/insta.svg" alt="">
+                    <img class="fb_media" src="src/fb.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
