@@ -11,6 +11,10 @@ input[type="checkbox"] {
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 :root {
     --background: #fbf7f4;
     --foreground: #252323;
@@ -1575,3 +1579,4 @@ body{
 .bg-soft {
     background-color: var(--secondary);
 }
+

@@ -274,15 +274,23 @@
             <div class="contacts">
                 <div class="visit">
                     <h5>Visit Us</h5>
-                    <p>Svobody, 35 <br>
+                    <a href="https://maps.app.goo.gl/6cNfTzLep75xmzQr5" style="text-decoration: none"> <p>Svobody, 35 <br>
                     Lviv, 79000 <br>
-                    Ukraine</p>
+                        Ukraine</p> </a>
                 </div>
                 <div class="contact">
                     <h5>Contact</h5>
-                    <p>hello@lumiere.mail</p>
-                    <p>+380976033820</p>
-                    <p>+380503626331</p>
+<a href="mailto:hello@lumiere.mail" style="text-decoration: none;font-weight: 200;">
+                        <p>
+                    hello@lumiere.mail
+                        </p>
+                    </a>
+                    <p><a href="tel:+380976033820" class="contact-link" style="text-decoration: none">
+    +380976033820
+</a></p>
+                    <p><a href="tel:+380503623621" class="contact-link" style="text-decoration: none">
+    +380503623621
+</a></p>
                 </div>
                 <div class="hours">
                     <h5>Hours</h5>
@@ -292,9 +300,9 @@
                 </div>
                 <div class="legal">
                     <h5>Legal</h5>
-                    <p>Privacy policy</p>
-                    <p>Terms of Service</p>
-                    <p>Cookies usage</p>
+                    <a href="{% url 'main:privacy' %}" style="text-decoration: none"><p>Privacy policy</p></a>
+                    <a href="{% url 'main:terms' %}" style="text-decoration: none"><p>Terms of Service</p></a>
+                    <a href="{% url 'main:cookies' %}" style="text-decoration: none"><p>Cookies usage</p></a>
                 </div>
             </div>
         </div>

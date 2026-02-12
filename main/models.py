@@ -1,4 +1,8 @@
+from django.core.mail import send_mail
 from django.db import models
+
+from Lumiere import settings
+
 
 # Create your models here.
 class Service(models.Model):
@@ -42,3 +46,42 @@ class Booking(models.Model):
     class Meta:
         ordering = ['-created_at']
         verbose_name_plural = 'Bookings'
+
+    def send_booking_email(self):
+        services_list = ", ".join(
+            service.service_name for service in self.services.all()
+        )
+
+        specialist_name = (
+            self.specialist.name if self.specialist else "Any specialist"
+        )
+
+        formatted_date = self.booking_date.strftime("%B %d, %Y")
+        formatted_time = self.booking_time.strftime("%H:%M")
+
+        send_mail(
+            subject=f"✨ Your Booking at Lumière is Confirmed",
+            message=(
+                f"Dear {self.first_name},\n\n"
+
+                f"Thank you for booking with Lumière Beauty.\n\n"
+
+                f"Here are your appointment details:\n"
+                f"— Services: {services_list}\n"
+                f"— Date: {formatted_date}\n"
+                f"— Time: {formatted_time}\n"
+                f"— Specialist: {specialist_name}\n"
+                f"— Total: ${self.total_price}\n\n"
+
+                f"If you need to reschedule or cancel, "
+                f"please contact us at hello@lumiere.mail.\n\n"
+
+                f"We look forward to welcoming you 🌿\n\n"
+
+                f"Warm regards,\n"
+                f"Lumière Beauty"
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[self.email],
+            fail_silently=False,
+        )

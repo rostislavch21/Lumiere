@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .legal-page {
+    padding: 120px 0;
+    background-color: #f8f6f3;
+}
+
+.legal-title {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.legal-subtitle {
+    color: #777;
+    margin-bottom: 60px;
+}
+
+.legal-content {
+    max-width: 700px;
+}
+
+.legal-content h3 {
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+.legal-content p {
+    margin-top: 10px;
+    line-height: 1.7;
+    color: #555;
+}
+    </style>
+</head>
+<body>
+<main>
+    <header class="nav">
+    <nav class="navigation">
+        <a href="{% url 'main:index' %}" class="navigation__logo">
+            LUMIÈRE
+        </a>
+        <div class="navigation__button">
+            <a href="{% url 'main:book' %}">Book appointment</a>
+        </div>
+    </nav>
+    </header>
+
+
+<section class="legal-page">
+    <div class="container">
+
+        <h1 class="legal-title">Terms of Service</h1>
+        <p class="legal-subtitle">
+            Clear and simple.
+        </p>
+
+        <div class="legal-content">
+
+            <h3>1. Appointments</h3>
+            <p>
+                By booking an appointment, you agree to arrive on time.
+                Late arrivals may result in reduced treatment time.
+            </p>
+
+            <h3>2. Cancellations</h3>
+            <p>
+                We kindly request at least 24 hours' notice for cancellations.
+                Repeated no-shows may require advance payment for future bookings.
+            </p>
+
+            <h3>3. Payments</h3>
+            <p>
+                Prices are listed on our website and may change without prior notice.
+                Payment is due at the time of service unless stated otherwise.
+            </p>
+
+            <h3>4. Health Conditions</h3>
+            <p>
+                Clients are responsible for informing specialists about allergies,
+                medical conditions, or sensitivities before treatment.
+            </p>
+
+            <h3>5. Liability</h3>
+            <p>
+                Lumière is not responsible for adverse reactions caused by
+                undisclosed health conditions.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+</main>
+</body>
+</html>

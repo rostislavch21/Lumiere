@@ -33,6 +33,7 @@ class BookingCreateView(CreateView):
 
         booking.total_price = total_price
         booking.save()
+        booking.send_booking_email()
 
         return super().form_valid(form)
 

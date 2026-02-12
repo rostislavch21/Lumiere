@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .legal-page {
+    padding: 120px 0;
+    background-color: #f8f6f3;
+}
+
+.legal-title {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.legal-subtitle {
+    color: #777;
+    margin-bottom: 60px;
+}
+
+.legal-content {
+    max-width: 700px;
+}
+
+.legal-content h3 {
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+.legal-content p {
+    margin-top: 10px;
+    line-height: 1.7;
+    color: #555;
+}
+    </style>
+</head>
+<body>
+<main>
+    <header class="nav">
+    <nav class="navigation">
+        <a href="{% url 'main:index' %}" class="navigation__logo">
+            LUMIÈRE
+        </a>
+        <div class="navigation__button">
+            <a href="{% url 'main:book' %}">Book appointment</a>
+        </div>
+    </nav>
+    </header>
+
+<section class="legal-page">
+    <div class="container">
+
+        <h1 class="legal-title">Privacy Policy</h1>
+        <p class="legal-subtitle">
+            Your privacy matters to us.
+        </p>
+
+        <div class="legal-content">
+
+            <h3>1. Information We Collect</h3>
+            <p>
+                When you book an appointment with Lumière, we collect
+                your name, email address, phone number, and booking details.
+                This allows us to confirm your appointment and provide our services.
+            </p>
+
+            <h3>2. How We Use Your Information</h3>
+            <p>
+                Your information is used solely for appointment management,
+                customer communication, and improving our services.
+                We do not sell or share your data with third parties.
+            </p>
+
+            <h3>3. Data Protection</h3>
+            <p>
+                We take appropriate security measures to protect your personal data.
+                Only authorized staff members have access to booking information.
+            </p>
+
+            <h3>4. Your Rights</h3>
+            <p>
+                You may request access, correction, or deletion of your personal data
+                at any time by contacting us at hello@lumiere.mail.
+            </p>
+
+            <h3>5. Updates</h3>
+            <p>
+                This Privacy Policy may be updated occasionally to reflect changes
+                in our services or legal requirements.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+</body>
+</html>
