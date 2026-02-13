@@ -103,5 +103,57 @@
 </section>
 
 </main>
+   <footer>
+        <div class="footer__container">
+        <div class="upper_footer">
+            <div class="book_visit">
+                <h3 class="book_visit__title">Book your visit.</h3>
+                <p class="book_visit__text">Ready for a moment of calm? Use our online booking system or give us a call. We look forward to welcoming you.</p>
+                <a class="book_visit__link" href="{% url 'main:book' %}">Book Online</a>
+            </div>
+            <div class="contacts">
+                <div class="visit">
+                    <h5>Visit Us</h5>
+                    <a href="https://maps.app.goo.gl/6cNfTzLep75xmzQr5" style="text-decoration: none"> <p>Svobody, 35 <br>
+                    Lviv, 79000 <br>
+                        Ukraine</p> </a>
+                </div>
+                <div class="contact">
+                    <h5>Contact</h5>
+                    <a href="mailto:hello@lumiere.mail" style="text-decoration: none;font-weight: 200;">
+                        <p>
+                    hello@lumiere.mail
+                        </p>
+                    </a>
+                    <p><a href="tel:+380976033820" class="contact-link" style="text-decoration: none">
+    +380976033820
+</a></p>
+                    <p><a href="tel:+380503623621" class="contact-link" style="text-decoration: none">
+    +380503623621
+</a></p>
+                </div>
+                <div class="hours">
+                    <h5>Hours</h5>
+                    <p>Mon - Fri: 09:00 - 20:00</p>
+                    <p>Sat: 10:00 - 18:00</p>
+                    <p>Sun: Closed</p>
+                </div>
+                <div class="legal">
+                    <h5>Legal</h5>
+                    <a href="{% url 'main:privacy' %}" style="text-decoration: none"><p>Privacy policy</p></a>
+                    <a href="{% url 'main:terms' %}" style="text-decoration: none"><p>Terms of Service</p></a>
+                    <a href="{% url 'main:cookies' %}" style="text-decoration: none"><p>Cookies usage</p></a>
+                </div>
+            </div>
+        </div>
+            <div class="lower__footer">
+                <p>© 2026 LUMIERE BEAUTY. All rights reserved.</p>
+                <div class="media">
+                    <a href="https://www.instagram.com"> <img class="insta_media" src="{% static 'img/insta.svg' %}" alt=""></a>
+                    <a href="https://www.facebook.com"><img class="fb_media" src="{% static 'img/fb.svg' %}" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

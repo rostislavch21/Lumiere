@@ -238,58 +238,6 @@ body{
     height: 600px;
 }
 
-.philosophy{
-    background-color: #F4EDE9;
-    padding: 160px 0;
-}
-
-.philosophy__container{
-    display: flex;
-    align-items: center;
-    max-width: 1280px;
-    margin: 0 auto;
-    gap: 80px;
-    justify-content: space-between;
-}
-
-.philosophy__img-container,
-.philosophy__content{
-    flex: 0 0 560px;
-}
-
-.philosophy__img-container img {
-    display: block;
-}
-
-.philosophy__img-container {
-    height: 500px;
-}
-
-.philosophy__img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 6px;
-}
-
-.philosophy__eyebrow{
-    margin: 0;
-    font-size: 12px;
-    margin-bottom: 31px;
-    color: #8E8682;
-    font-family: 'Inter', sans-serif;
-}
-
-.philosophy__title{
-    margin: 0;
-    font-size: 48px;
-    margin-bottom: 31px;
-    color: #252323;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-}
-
 .philosophy__text_1,
 .philosophy__text_2{
     font-size: 16px;
@@ -305,47 +253,6 @@ body{
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-
-    color: #252323;
-    text-decoration: none;
-
-    transition: color 0.25s ease;
-}
-
-.philosophy__link::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-
-    opacity: 0.4;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.25s ease;
-}
-
-.philosophy__link:hover{
-    color: #1f1d1d; /* почти тот же, но мягче */
-}
-
-.philosophy__link:hover::after{
-    transform: scaleX(1);
-}
-
-.services{
-    padding: 60px 0px;
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-.services__text_container{
-    padding-top: 60px;
-    width: 600px;
-    margin: 0 auto 60px;
 }
 
 .services__eyebrow{
@@ -388,8 +295,8 @@ body{
     background-color: #fff;
 
     transition:
-        box-shadow 0.3s ease,
-        transform 0.25s ease;
+            box-shadow 0.3s ease,
+            transform 0.25s ease;
 }
 
 .card_container:hover{
@@ -490,14 +397,14 @@ body{
     cursor: pointer;
 
     transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        color 0.25s ease;
+            background-color 0.25s ease,
+            border-color 0.25s ease,
+            color 0.25s ease;
 }
 
 .view_link:hover{
-    background-color: #F1ECE7;              
-    border-color: rgba(0, 0, 0, 0.14);     
+    background-color: #F1ECE7;
+    border-color: rgba(0, 0, 0, 0.14);
 }
 
 
@@ -549,7 +456,7 @@ body{
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 22.4px; 
+    line-height: 22.4px;
 }
 
 .review__client{
@@ -579,7 +486,7 @@ body{
     align-items: baseline;
     padding-top: 60px;
     margin-bottom: 40px;
-    
+
 }
 
 .instagram__text h4{
@@ -626,7 +533,7 @@ body{
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.45); 
+    background: rgba(0, 0, 0, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -671,6 +578,100 @@ footer{
     grid-template-columns: 540px 1fr;
     gap: 160px;
     padding-bottom: 80px;
+
+color: #252323;
+text-decoration: none;
+
+transition: color 0.25s ease;
+}
+
+.philosophy{
+    background-color: #F4EDE9;
+    padding: 160px 0;
+}
+
+.philosophy__container{
+    display: flex;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 80px;
+    justify-content: space-between;
+}
+
+.philosophy__img-container,
+.philosophy__content{
+    flex: 0 0 560px;
+}
+
+.philosophy__img-container img {
+    display: block;
+}
+
+.philosophy__img-container {
+    height: 500px;
+}
+
+.philosophy__img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+
+.philosophy__eyebrow{
+    margin: 0;
+    font-size: 12px;
+    margin-bottom: 31px;
+    color: #8E8682;
+    font-family: 'Inter', sans-serif;
+}
+
+.philosophy__title{
+    margin: 0;
+    font-size: 48px;
+    margin-bottom: 31px;
+    color: #252323;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.philosophy__link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+
+    opacity: 0.4;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.philosophy__link:hover{
+    color: #1f1d1d; /* почти тот же, но мягче */
+}
+
+.philosophy__link:hover::after{
+    transform: scaleX(1);
+}
+
+
+.services{
+    padding: 60px 0px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.services__text_container{
+    padding-top: 60px;
+    width: 600px;
+    margin: 0 auto 60px;
 }
 
 .book_visit{
@@ -1578,5 +1579,764 @@ body{
 
 .bg-soft {
     background-color: var(--secondary);
+}
+
+.section-hero,
+.philosophy__container,
+.services,
+.instagram__container,
+.footer__container {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 24px;
+    margin: 0 auto;
+}
+
+
+.section-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.section-hero__title {
+    font-size: clamp(32px, 5vw, 64px);
+}
+
+.section-hero__img-container {
+    aspect-ratio: 4 / 5;
+}
+
+.section-hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card_box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    flex: 0;
+}
+
+.instagram__container {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 24px;
+}
+
+.instagram__photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.insta-item {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+}
+
+.upper_footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.contacts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+
+@media (max-width: 768px) {
+
+    /* ===== Общие контейнеры ===== */
+
+    .navigation,
+    .section-hero,
+    .philosophy__container,
+    .services,
+    .instagram__container,
+    .footer__container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* ===== HERO ===== */
+
+    .section-hero {
+        flex-direction: column;
+        gap: 40px;
+        padding-top: 40px;
+        text-align: left;
+    }
+
+    .section-hero__content,
+    .section-hero__img-container {
+        flex: unset;
+        width: 100%;
+    }
+
+    .section-hero__title {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .section-hero__text {
+        font-size: 16px;
+    }
+
+    .section-hero__img-container {
+        height: auto;
+    }
+
+    .section-hero__img {
+        height: auto;
+    }
+
+    .section-hero__actions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .btn--primary,
+    .btn--secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* ===== PHILOSOPHY ===== */
+
+    .philosophy {
+        padding: 80px 0;
+    }
+
+    .philosophy__container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .philosophy__img-container,
+    .philosophy__content {
+        flex: unset;
+        width: 100%;
+    }
+
+    .philosophy__title {
+        font-size: 32px;
+    }
+
+    /* ===== SERVICES ===== */
+
+    .services__text_container {
+        width: 100%;
+        padding-top: 40px;
+    }
+
+    .services__title {
+        font-size: 32px;
+    }
+
+    .card_box {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .card_container {
+        flex: unset;
+        width: 100%;
+    }
+
+    /* ===== REVIEW ===== */
+
+    .review {
+        padding: 80px 20px;
+    }
+
+    .review__text {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    /* ===== INSTAGRAM ===== */
+
+    .instagram {
+        padding: 60px 0;
+    }
+
+    .instagram__container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .instagram__text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+
+    .instagram__text h4 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .instagram__photos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .insta-item {
+        width: 100%;
+        aspect-ratio: 1 / 1; /* делает квадрат */
+        height: auto;
+    }
+
+    .insta-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    /* ===== FOOTER ===== */
+
+    .upper_footer {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .contacts {
+        grid-template-columns: 1fr;
+        grid-template-areas: unset;
+        gap: 32px;
+    }
+
+    .lower__footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    footer {
+        padding: 60px 0;
+    }
+
+    .footer__container {
+        max-width: 100%;
+        padding: 0 24px;
+    }
+
+    .upper_footer {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        padding-bottom: 56px;
+    }
+
+    /* BOOK SECTION */
+    .book_visit {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .upper_footer {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+    }
+
+    .book_visit__title {
+        font-size: 34px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .book_visit__text {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    .book_visit__link {
+        width: 100%;
+        padding: 18px;
+        text-align: center;
+    }
+
+    /* CONTACT GRID → COLUMN */
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contacts h5 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .contacts p,
+    .contacts a {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* Lower footer */
+    .lower__footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .media {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .upper_footer {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+    }
+
+    .book_visit {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .lower__footer {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .section-hero {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 24px 60px;
+    }
+
+    .section-hero__content {
+        flex: none;
+        width: 100%;
+    }
+
+    .section-hero__img-container {
+        flex: none;
+        width: 100%;
+        height: 420px;
+    }
+
+    .section-hero__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    .section-hero {
+        flex-direction: column-reverse;
+    }
+
+    .section-hero {
+        flex-direction: column;
+        padding: 40px 20px 60px;
+        gap: 32px;
+    }
+
+    .section-hero__content,
+    .section-hero__img-container {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section-hero__img-container {
+        height: 420px;
+    }
+
+    .section-hero__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+
+    .section-hero {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 20px 60px;
+        gap: 32px;
+    }
+
+    .section-hero__content,
+    .section-hero__img-container {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .section-hero__img-container {
+        height: 420px;
+    }
+
+    .section-hero__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .section-hero__img-container {
+        order: -1;
+    }
+
+    .section-hero__content {
+        order: 1;
+    }
+
+    /* Общий контейнер */
+    main {
+        padding: 0 16px;
+    }
+
+    /* Заголовок */
+    .text_section {
+        margin-bottom: 40px;
+    }
+
+    .text_section__title {
+        font-size: 28px;
+        line-height: 34px;
+        margin-bottom: 10px;
+    }
+
+    .text_section__description {
+        font-size: 14px;
+    }
+
+    /* ВСЕ основные блоки */
+    .service_select,
+    .specialist_select,
+    .data_select,
+    .details-select,
+    .total {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    /* SERVICES */
+    .service_select__lower {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .service_select__card {
+        padding: 18px;
+    }
+
+    .service_select__title-price h4 {
+        font-size: 16px;
+    }
+
+    .service_select__price {
+        font-size: 16px;
+    }
+
+    /* КАЛЕНДАРЬ */
+    .booking-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .weekdays,
+    .calendar-days {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+    }
+
+    .day {
+        padding: 12px 0;
+        font-size: 14px;
+    }
+
+    /* СЛОТЫ */
+    .slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .slot {
+        width: 100%;
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    /* ФОРМА */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    /* TOTAL */
+    .total {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .summary-right {
+        text-align: left;
+    }
+
+    .summary-price {
+        font-size: 20px;
+    }
+
+    /* КНОПКИ */
+    .booking-actions {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 50px;
+    }
+
+    .btn-back {
+        align-self: flex-start;
+    }
+
+    .btn-confirm {
+        width: 100%;
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+/* ===== ИСПРАВЛЕННЫЙ СКРОЛЛ ===== */
+
+    /* 1. РОДИТЕЛЬ */
+    .specialist_select {
+        /* Убираем боковые отступы совсем */
+        padding: 20px 0 !important;
+        overflow: hidden !important;
+    }
+
+/* ===== SPECIALISTS SCROLL (ФИНАЛЬНЫЙ) ===== */
+
+    .specialist_select__upper {
+        /* Возвращаем отступ заголовку */
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    /* Контейнер */
+    .specialist_select__lower {
+        display: flex !important;
+        width: 100% !important;
+        gap: 12px !important;
+
+        /* Включаем скролл */
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+
+        /* Убираем все паддинги по бокам, оставляем только вертикальные */
+        /* 15px сверху/снизу нужны, чтобы тень и зум не обрезались */
+        padding: 15px 0 !important;
+
+        /* Сброс стилей списка */
+        margin: 0 !important;
+        border: none !important;
+
+        /* Хак для скролла */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    /* Скрываем скроллбар */
+    .specialist_select__lower::-webkit-scrollbar { display: none; }
+
+    /* Сами карточки */
+    .specialist_select__card {
+        flex: 0 0 auto !important; /* Не сжимать */
+        width: 100px !important;
+        display: block !important;
+        margin: 0 !important; /* Сбрасываем внешние отступы карточек */
+    }
+
+    /* === ГЛАВНЫЙ ФИКС ДЛЯ ОТСТУПОВ === */
+    /* Добавляем невидимый элемент В НАЧАЛЕ списка шириной 20px */
+    .specialist_select__lower::before {
+        content: "" !important;
+        display: block !important;
+        flex: 0 0 10px !important; /* Ширина отступа слева */
+        width: 10px !important;
+    }
+
+    /* Добавляем невидимый элемент В КОНЦЕ списка шириной 20px */
+    .specialist_select__lower::after {
+        content: "" !important;
+        display: block !important;
+        flex: 0 0 10px !important; /* Ширина отступа справа */
+        width: 10px !important;
+    }
+
+/* ===== ИТОГОВЫЙ БЛОК (TOTAL) И КНОПКИ (MOBILE) ===== */
+
+    /* 1. Блок с ценой и текстом (СЛЕВА - СПРАВА) */
+    .total {
+        display: flex !important;
+        /* Важно: row оставляет элементы на одной линии */
+        flex-direction: row !important;
+        justify-content: space-between !important; /* Разносит по краям */
+        align-items: flex-start !important; /* Выравнивание по верху */
+
+        padding: 20px !important;
+        background-color: #F4EDE9;
+        border-radius: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 24px;
+    }
+
+    /* Левая часть (Цена) */
+    .summary-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    /* Правая часть (Текст "No services...") */
+    .summary-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Прижимаем контент вправо */
+        text-align: right;     /* Текст тоже по правому краю */
+
+        /* Ограничиваем ширину, чтобы текст не налез на цену, если он длинный */
+        max-width: 60%;
+    }
+
+    /* Шрифты для мобилки */
+    .summary-price {
+        font-size: 24px !important; /* Чуть меньше чем на десктопе, чтоб влезало */
+        line-height: 1.2;
+        margin-top: 4px;
+    }
+
+    .summary-service,
+    .summary-details {
+        font-size: 13px !important; /* Текст справа чуть компактнее */
+        line-height: 1.4;
+    }
+
+    /* 2. КНОПКИ (ВНИЗУ) */
+    .booking-actions {
+        display: flex !important;
+        flex-direction: column-reverse !important; /* Сначала кнопка, потом "Назад" (снизу вверх) */
+        gap: 16px; /* Отступ между кнопкой и ссылкой */
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    /* Ссылка "Back" */
+    .btn-back {
+        align-self: flex-start; /* Прижать влево */
+        font-size: 15px;
+        color: #8E8682;
+        padding: 8px 0; /* Увеличим область клика */
+        text-decoration: none;
+    }
+
+    /* Кнопка "Confirm Booking" */
+    .btn-confirm {
+        width: 100% !important; /* Во всю ширину экрана */
+        padding: 18px 0 !important;
+
+        background-color: #252323;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 14px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .specialist_select__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* центр по горизонтали */
+    justify-content: center;
+    text-align: center;
+    }
+
+    .hiddentext{
+        display: none;
+    }
+
+    .section {
+        padding: 64px 0;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Заголовок */
+    .heading-lg {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .body-md {
+        font-size: 15px;
+    }
+
+    /* Делаем 1 колонку */
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    /* Немного уменьшаем отступ иконки */
+    .value-icon {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 12px;
+    }
+
+    /* Ограничиваем ширину текста */
+    .grid-3 p {
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Уменьшаем отступ у заголовочного блока */
+    .text-center.space-y-4 {
+        margin-bottom: 48px !important;
+    }
 }
 
