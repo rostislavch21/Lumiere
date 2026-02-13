@@ -11,7 +11,11 @@ urlpatterns = [
     path('', IndexTemplateView.as_view(), name='index'),
     path('book/', BookingCreateView.as_view(), name='book'),
     path('story/', StoryTemplateView.as_view(), name='story'),
-    path("booking-success/", BookingSuccessView.as_view(), name="booking_success"),
+    path(
+        "booking/success/<int:pk>/",
+        BookingSuccessView.as_view(),
+        name="booking_success",
+    ),
     path("privacy/", TemplateView.as_view(
         template_name="main/privacy.html"
     ), name="privacy"),

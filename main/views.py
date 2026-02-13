@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import TemplateView, CreateView, DetailView
 
 from main.forms import BookingForm
 from main.models import Booking, Service, Specialist
@@ -14,7 +14,6 @@ class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
     template_name = "main/book.html"
-    success_url = reverse_lazy("main:booking_success")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -23,28 +22,29 @@ class BookingCreateView(CreateView):
         return context
 
     def form_valid(self, form):
-        booking = form.save(commit=False)
-        booking.save()
+        self.object = form.save(commit=False)
+        self.object.save()
         form.save_m2m()
 
         total_price = sum(
-            service.price for service in booking.services.all()
+            service.price for service in self.object.services.all()
         )
 
-        booking.total_price = total_price
-        booking.save()
-        booking.send_booking_email()
+        self.object.total_price = total_price
+        self.object.save()
+        self.object.send_booking_email()
 
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse("main:booking_success", kwargs={"pk": self.object.pk})
 
 
 class StoryTemplateView(TemplateView):
     template_name = 'main/story.html'
 
-class BookingSuccessView(TemplateView):
-    template_name = "main/success.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["booking"] = Booking.objects.last()
-        return context
+class BookingSuccessView(DetailView):
+    model = Booking
+    template_name = "main/success.html"
+    context_object_name = "booking"
