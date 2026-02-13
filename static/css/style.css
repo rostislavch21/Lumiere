@@ -1199,7 +1199,7 @@ body{
 .details-select{
     max-width: 800px;
     margin: 0 auto;
-    padding: 32px;
+    padding: clamp(25px, 5vw, 32px);
     background-color: #fff;
     margin-bottom: 72px;
     border-radius: 8px;
@@ -1245,6 +1245,7 @@ body{
 
 .form-group input,
 .form-group textarea{
+  min-width: 100px;
   padding:16px;
   border-radius:12px;
   border:1px solid rgba(0,0,0,0.08);
@@ -2098,6 +2099,7 @@ body{
 
     .form-group input,
     .form-group textarea {
+        width: 100% !important;
         padding: 14px;
         font-size: 14px;
     }
@@ -2338,5 +2340,6 @@ body{
     .text-center.space-y-4 {
         margin-bottom: 48px !important;
     }
+
 }
 
